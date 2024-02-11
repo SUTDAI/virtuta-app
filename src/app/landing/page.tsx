@@ -7,11 +7,19 @@ const LandingPage = () => {
     <body>
       <div className="flex flex-row h-screen w-screen bg-[#1D1D1D]">
         <div className="flex-auto flex-col w-1/2 flex justify-center p-10">
-          <div className="text-white text-7xl">Learning made easier</div>
-          <div className="text-white">
-            Meet virtuTA, your virtual teaching assistant! Get instant help 24/7
-            and ace your studies effortlessly.
+          <div className="text-white text-7xl font-poppins font-black">
+            Learning made
           </div>
+          <div className="text-white text-7xl font-poppins font-black typewriter">
+            Easier
+          </div>
+          <div className="text-white font-roboto">
+            Meet virtuTA, your virtual teaching assistant!
+          </div>
+          <div className="text-white font-roboto">
+            Get instant help 24/7 and ace your studies effortlessly.
+          </div>
+          <br></br>
           <SignupButton />
         </div>
         <div className="flex-auto w-1/2 flex justify-center items-center">
