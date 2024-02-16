@@ -2,7 +2,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-const SignupButton = () => {
+const SignupRedirectButton = () => {
   const router = useRouter();
 
   return (
@@ -15,4 +15,4 @@ const SignupButton = () => {
   );
 };
 
-export default SignupButton;
+export default SignupRedirectButton;

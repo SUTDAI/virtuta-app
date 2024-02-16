@@ -1,5 +1,5 @@
 import React from "react";
-import SignupButton from "../components/signupbutton";
+import SignupRedirectButton from "../components/signupredirectbutton";
 import NavBar from "../components/navbar";
 
 const LandingPage = () => {
@@ -21,7 +21,7 @@ const LandingPage = () => {
             Get instant help 24/7 and ace your studies effortlessly.
           </div>
           <br></br>
-          <SignupButton />
+          <SignupRedirectButton />
         </div>
         <div className="flex-auto w-1/2 flex justify-center items-center">
           <div className="size-11/12 bg-[#101010] rounded-3xl"></div>
