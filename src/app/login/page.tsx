@@ -1,7 +1,6 @@
-import Link from "next/link";
 import React from "react";
 import Image from "next/image";
-import SignupForm from "../components/signupform";
+import SigninForm from "../components/signinform";
 
 const LoginPage = () => {
   return (
@@ -12,8 +11,8 @@ const LoginPage = () => {
         width={300}
         height={200}
       />
-      <div className="font-poppins font-black text-2xl mt-10">SIGN IN</div>
-      <SignupForm />
+      <div className="font-poppins font-black text-2xl my-10">SIGN IN</div>
+      <SigninForm />
     </div>
   );
 };
