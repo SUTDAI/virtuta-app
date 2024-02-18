@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
 const SignupForm = () => {
-  const endpoint = "http://localhost:3001/user/login";
+  const endpoint = "http://localhost:3001/user/add";
   const router = useRouter();
 
   const [candidate, setCandidate] = useState({
@@ -13,7 +13,6 @@ const SignupForm = () => {
     email: "",
     password: "",
   });
-  const [user, SetUser] = useState();
 
   const onSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -27,7 +26,7 @@ const SignupForm = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          userName: candidate.firstName + candidate.lastName,
+          userName: candidate.firstName + " " + candidate.lastName,
           accountType: candidate.accountType,
           email: candidate.email,
           password: candidate.password,
@@ -37,20 +36,14 @@ const SignupForm = () => {
       if (!response.ok) {
         const errorMessage = await response.json();
         // Handle specific error status codes
-        if (response.status === 400) {
+        if (response.status === 500) {
           // Change input HTML style here for bad request (e.g., add a class to highlight inputs)
           return alert(errorMessage.message);
-        } else if (response.status === 404) {
-          // Change input HTML style here for unauthorized (e.g., add a class to highlight inputs)
-          return alert(errorMessage.message);
         } else {
-          throw new Error("Failed to login");
+          throw new Error("Failed to Signup");
         }
       }
-
-      const data = await response.json();
-      SetUser(data);
-      router.push("/users/student");
+      router.push("/login");
     } catch (error) {
       console.error("Fetch error:", error);
       // Handle the error (e.g., show an error message to the user)
@@ -121,6 +114,7 @@ const SignupForm = () => {
               id="radio_1"
               type="radio"
               value={1}
+              name="accountselect"
               onChange={(e) => {
                 setCandidate({
                   ...candidate,
@@ -129,7 +123,7 @@ const SignupForm = () => {
               }}
             />
             <label
-              className="flex flex-col p-4 m-2 rounded-md border-2 peer-checked:border-orange-600 peer-checked:text-orange-600"
+              className="flex flex-col p-4 m-2 rounded-md border-2 peer-checked:border-orange-600 peer-checked:text-orange-600 cursor-pointer"
               htmlFor="radio_1"
             >
               <span className="font-poppins text-m uppercase">
@@ -144,6 +138,7 @@ const SignupForm = () => {
               id="radio_2"
               type="radio"
               value={2}
+              name="accountselect"
               onChange={(e) => {
                 setCandidate({
                   ...candidate,
@@ -152,7 +147,7 @@ const SignupForm = () => {
               }}
             />
             <label
-              className="flex flex-col p-4 m-2 rounded-md border-2 peer-checked:border-orange-600 peer-checked:text-orange-600"
+              className="flex flex-col p-4 m-2 rounded-md border-2 peer-checked:border-orange-600 peer-checked:text-orange-600 cursor-pointer"
               htmlFor="radio_2"
             >
               <span className="font-poppins text-m uppercase">
