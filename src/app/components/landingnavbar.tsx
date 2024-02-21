@@ -12,6 +12,9 @@ const NavBar = () => {
         height={200}
         className="p-3 ml-7"
       />
+      <div className="flex grow text-white font-poppins items-center justify-end mr-10">
+        <Link href="/login">Sign In</Link>
+      </div>
     </div>
   );
 };

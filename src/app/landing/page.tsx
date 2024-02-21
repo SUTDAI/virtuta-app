@@ -1,6 +1,6 @@
 import React from "react";
 import SignupRedirectButton from "../components/signupredirectbutton";
-import NavBar from "../components/navbar";
+import NavBar from "../components/landingnavbar";
 
 const LandingPage = () => {
   return (
